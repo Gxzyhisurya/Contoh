@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>POTRET AKSI ID</title>
+
+  <style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:linear-gradient(to bottom,#000 20%,#000 55%,#0a0f2c 90%);
+  color:#fff;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+  padding-bottom:120px; /* ✅ SPACE BAWAH SENDIRI */
+}
+
+/* HERO */
+.hero{position:relative;width:100%}
+.hero-img{width:100%;display:block}
+.hero-overlay{
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  width:100%;
+}
+.movie-genre{font-size:14px;margin-bottom:16px}
+.action-row{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+}
+.play-btn{
+  background:#fff;
+  color:#000;
+  padding:12px 28px;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
+}
+.icon-btn{
+  width:48px;height:48px;
+  border-radius:50%;
+  border:2px solid #fff;
+  background:none;
+  color:#fff;
+}
+
+/* SECTIONS */
+section{margin:30px 20px}
+h2{margin-bottom:10px}
+.movie-row{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.movie-row::-webkit-scrollbar{display:none}
+.movie-item{
+  width:135px;
+  aspect-ratio:3/4;
+  border-radius:8px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.movie-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* NAV */
+.nav-overlay{
+  position:fixed;
+  bottom:0;left:0;
+  width:100%;
+  height:70px;
+  background:rgba(0,0,0,.95);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:9999;
+}
+.nav-btn img{width:48px;height:48px}
+  </style>
+</head>
+
+<body>
+
+<div class="hero">
+  <img src="searchinghdr.jpg" class="hero-img" alt="">
+  <div class="hero-overlay">
+    <p class="movie-genre">Drama • Dokumenter • Ketegangan</p>
+    <div class="action-row">
+      <button class="icon-btn">🤍</button>
+      <a href="search1full.html" class="play-btn">▶ PLAY</a>
+      <button class="icon-btn">ℹ</button>
+    </div>
+  </div>
+</div>
+
+<section>
+<h2>Exciting viewing</h2>
+<div class="movie-row">
+<a class="movie-item" href="Merasukfilm.html"><img src="Merasukku.jpg"></a>
+<a class="movie-item" href="leuweungfull.html"><img src="Leuweungku.jpg"></a>
+<a class="movie-item" href="search1full.html"><img src="Searchingku.jpg"></a>
+<a class="movie-item" href="leuweungfull.html"><img src="penungguku.jpg"></a>
+</div>
+</section>
+
+<section>
+<h2>Like to think?</h2>
+<div class="movie-row">
+<a class="movie-item"><img src="gagabahku.jpg"></a>
+<a class="movie-item"><img src="Tertipuku.jpg"></a>
+<a class="movie-item"><img src="ningcomku.jpg"></a>
+<a class="movie-item"><img src="diaku.jpg"></a>
+</div>
+</section>
+
+<section>
+<h2>Just added</h2>
+<div class="movie-row">
+<a class="movie-item"><img src="pertanyaaku.jpg"></a>
+<a class="movie-item"><img src="siccinposter.jpg"></a>
+<a class="movie-item"><img src="schoolnightmareps.jpg"></a>
+</div>
+</section>
+
+<div class="nav-overlay">
+  <a class="nav-btn"><img src="rumahku.png"></a>
+  <a class="nav-btn"><img src="Searchbtn.png"></a>
+  <a class="nav-btn"><img src="enyarrek.png"></a>
+  <a class="nav-btn"><img src="inpone.png"></a>
+</div>
+
+</body>
+</html>
