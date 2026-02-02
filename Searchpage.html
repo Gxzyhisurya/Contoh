@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Film</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+  padding-bottom: 190px; /* SPACE BAWAH DITAMBAH */
+}
+
+/* SEARCH BAR */
+.search-bar {
+  padding: 14px;
+  background: #1a1a1a;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 15px;
+}
+
+/* SECTION */
+.section {
+  padding: 16px;
+}
+
+.section h2 {
+  margin-bottom: 14px;
+  font-size: 25px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* POSTER */
+.poster {
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #222;
+}
+
+.poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* HIDDEN */
+.hidden { display: none; }
+
+/* NOT FOUND */
+.not-found {
+  text-align: center;
+  margin-top: 40px;
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+/* NAV */
+.nav-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9999;
+}
+
+.nav-btn img {
+  width: 49px;
+  height: 50px;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.nav-btn img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Type title here">
+</div>
+
+<div class="section" id="popularSection">
+  <h2>Populer Search</h2>
+  <div class="grid" id="popularGrid"></div>
+</div>
+
+<div class="section hidden" id="resultSection">
+  <h2></h2>
+  <div class="grid" id="resultGrid"></div>
+  <div class="not-found hidden" id="notFound">Film tidak ditemukan</div>
+</div>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const popularSection = document.getElementById("popularSection");
+const resultSection = document.getElementById("resultSection");
+const popularGrid = document.getElementById("popularGrid");
+const resultGrid = document.getElementById("resultGrid");
+const notFound = document.getElementById("notFound");
+
+const films = [
+  { title: "Pertanyaan Dalam Kubur", poster: "pertanyaaku.jpg", link: "pertanyaan.html" },
+  { title: "Merasuk: First Possesion", poster: "merasukku.jpg", link: "Merasukfilm.html" },
+  { title: "Penunggu Dari Kematian", poster: "penungguku.jpg", link: "Leuweungfull.html" },
+  { title: "Leuweung Setan", poster: "leuweungku.jpg", link: "Leuweungfull.html" },
+  { title: "Dia Terpanggil", poster: "diaku.jpg", link: "diaterpanggilfull.html" },
+  { title: "Kembalinya Ningrum", poster: "ningcomku.jpg", link: "Ningcomku.html" },
+  { title: "Searching First Case", poster: "Searchingku.jpg", link: "search1full.html" },
+  { title: "Siccin", poster: "siccinposter.jpg", link: "siccinfull.html" },
+  { title: "School Nightmare", poster: "schoolnightmareps.jpg", link: "schoolnightmare.html" }
+];
+
+films.forEach(film => {
+  popularGrid.innerHTML += `
+    <div class="poster" onclick="location.href='${film.link}'">
+      <img src="${film.poster}" alt="${film.title}">
+    </div>
+  `;
+});
+
+searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.toLowerCase().trim();
+
+  popularSection.classList.toggle("hidden", keyword !== "");
+  resultSection.classList.toggle("hidden", keyword === "");
+
+  resultGrid.innerHTML = "";
+  notFound.classList.add("hidden");
+
+  const results = films.filter(f => f.title.toLowerCase().includes(keyword));
+
+  if (!results.length && keyword !== "") {
+    notFound.classList.remove("hidden");
+    return;
+  }
+
+  results.forEach(film => {
+    resultGrid.innerHTML += `
+      <div class="poster" onclick="location.href='${film.link}'">
+        <img src="${film.poster}">
+      </div>
+    `;
+  });
+});
+</script>
+
+<div class="nav-overlay">
+  <a href="Postiflix.html" class="nav-btn"><img src="rumahku.png"></a>
+  <a href="searchpage.html" class="nav-btn"><img src="searchbtn.png"></a>
+  <a href="upcoming.html" class="nav-btn"><img src="enyarrek.png"></a>
+  <a href="infopage.html" class="nav-btn"><img src="inpone.png"></a>
+</div>
+
+</body>
+</html>
