@@ -5,101 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Search Film</title>
 
-<style>
-* { box-sizing: border-box; }
+<!-- FONT POPPINS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: #fff;
-  padding-bottom: 190px; /* SPACE BAWAH DITAMBAH */
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color: transparent; /* 🔥 HILANGKAN BIRU */
+}
+
+html,body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#0f0f0f;
+  color:#fff;
+  padding-bottom:190px;
+}
+
+/* HILANGKAN OUTLINE */
+a, button, input, div{
+  outline:none;
+  border:none;
 }
 
 /* SEARCH BAR */
-.search-bar {
-  padding: 14px;
-  background: #1a1a1a;
+.search-bar{
+  padding:14px;
+  background:#1a1a1a;
 }
 
-.search-bar input {
-  width: 100%;
-  padding: 14px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  background: #2a2a2a;
-  color: #fff;
-  font-size: 15px;
+.search-bar input{
+  width:100%;
+  padding:14px;
+  border-radius:8px;
+  background:#2a2a2a;
+  color:#fff;
+  font-size:15px;
+  font-family:'Poppins',sans-serif;
+}
+
+.search-bar input:focus{
+  outline:none;
 }
 
 /* SECTION */
-.section {
-  padding: 16px;
+.section{
+  padding:16px;
 }
 
-.section h2 {
-  margin-bottom: 14px;
-  font-size: 25px;
+.section h2{
+  margin-bottom:14px;
+  font-size:25px;
+  font-weight:600;
 }
 
 /* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
 }
 
 /* POSTER */
-.poster {
-  aspect-ratio: 3 / 4;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  background: #222;
+.poster{
+  aspect-ratio:3/4;
+  border-radius:10px;
+  overflow:hidden;
+  cursor:pointer;
+  background:#222;
+  transition:0.3s;
 }
 
-.poster img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.poster img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.poster:active{
+  transform:scale(0.98);
 }
 
 /* HIDDEN */
-.hidden { display: none; }
+.hidden{display:none;}
 
 /* NOT FOUND */
-.not-found {
-  text-align: center;
-  margin-top: 40px;
-  opacity: 0.6;
-  font-size: 14px;
+.not-found{
+  text-align:center;
+  margin-top:40px;
+  opacity:0.6;
+  font-size:14px;
+  font-weight:300;
 }
 
 /* NAV */
-.nav-overlay {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  background: rgba(0,0,0,0.95);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 9999;
+.nav-overlay{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:rgba(0,0,0,0.95);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:9999;
 }
 
-.nav-btn img {
-  width: 49px;
-  height: 50px;
-  opacity: 0.85;
-  transition: 0.3s;
+.nav-btn img{
+  width:49px;
+  height:50px;
+  opacity:0.85;
+  transition:0.3s;
 }
 
-.nav-btn img:hover {
-  opacity: 1;
-  transform: scale(1.1);
+.nav-btn img:active{
+  transform:scale(0.95);
+  opacity:1;
 }
 </style>
 </head>
@@ -122,64 +151,61 @@ body {
 </div>
 
 <script>
-const searchInput = document.getElementById("searchInput");
-const popularSection = document.getElementById("popularSection");
-const resultSection = document.getElementById("resultSection");
-const popularGrid = document.getElementById("popularGrid");
-const resultGrid = document.getElementById("resultGrid");
-const notFound = document.getElementById("notFound");
+const searchInput=document.getElementById("searchInput");
+const popularSection=document.getElementById("popularSection");
+const resultSection=document.getElementById("resultSection");
+const popularGrid=document.getElementById("popularGrid");
+const resultGrid=document.getElementById("resultGrid");
+const notFound=document.getElementById("notFound");
 
-const films = [
-  { title: "Pertanyaan Dalam Kubur", poster: "pertanyaaku.jpg", link: "pertanyaan.html" },
-  { title: "Merasuk: First Possesion", poster: "merasukku.jpg", link: "merasukfilm.html" },
-  { title: "Penunggu Dari Kematian", poster: "penungguku.jpg", link: "leuweungfilm.html" },
-  { title: "Leuweung Setan", poster: "leuweungku.jpg", link: "leuweungfilm.html" },
-  { title: "Dia Terpanggil", poster: "diaku.jpg", link: "diaterpanggilfull.html" },
-  { title: "Kembalinya Ningrum", poster: "ningcomku.jpg", link: "ningrumfilm.html" },
-  { title: "Searching First Case", poster: "Searchingku.jpg", link: "searchingepisode1.html" },
-  { title: "Siccin", poster: "siccinposter.jpg", link: "siccinfilm.html" },
-  { title: "School Nightmare", poster: "schoolnightmareps.jpg", link: "schoolnightmarefilm.html" }
+const films=[
+{ title:"Pertanyaan Dalam Kubur", poster:"pertanyaaku.jpg", link:"pertanyaan.html" },
+{ title:"Merasuk: First Possesion", poster:"merasukku.jpg", link:"merasukfilm.html" },
+{ title:"Penunggu Dari Kematian", poster:"penungguku.jpg", link:"leuweungfilm.html" },
+{ title:"Leuweung Setan", poster:"leuweungku.jpg", link:"leuweungfilm.html" },
+{ title:"Dia Terpanggil", poster:"diaku.jpg", link:"diaterpanggilfull.html" },
+{ title:"Kembalinya Ningrum", poster:"ningcomku.jpg", link:"ningrumfilm.html" },
+{ title:"Searching First Case", poster:"Searchingku.jpg", link:"searchingepisode1.html" },
+{ title:"Siccin", poster:"siccinposter.jpg", link:"siccinfilm.html" },
+{ title:"School Nightmare", poster:"schoolnightmareps.jpg", link:"schoolnightmarefilm.html" }
 ];
 
-films.forEach(film => {
-  popularGrid.innerHTML += `
-    <div class="poster" onclick="location.href='${film.link}'">
-      <img src="${film.poster}" alt="${film.title}">
-    </div>
-  `;
+films.forEach(film=>{
+popularGrid.innerHTML+=`
+<div class="poster" onclick="location.href='${film.link}'">
+<img src="${film.poster}" alt="${film.title}">
+</div>`;
 });
 
-searchInput.addEventListener("input", () => {
-  const keyword = searchInput.value.toLowerCase().trim();
+searchInput.addEventListener("input",()=>{
+const keyword=searchInput.value.toLowerCase().trim();
 
-  popularSection.classList.toggle("hidden", keyword !== "");
-  resultSection.classList.toggle("hidden", keyword === "");
+popularSection.classList.toggle("hidden",keyword!=="");
+resultSection.classList.toggle("hidden",keyword==="");
 
-  resultGrid.innerHTML = "";
-  notFound.classList.add("hidden");
+resultGrid.innerHTML="";
+notFound.classList.add("hidden");
 
-  const results = films.filter(f => f.title.toLowerCase().includes(keyword));
+const results=films.filter(f=>f.title.toLowerCase().includes(keyword));
 
-  if (!results.length && keyword !== "") {
-    notFound.classList.remove("hidden");
-    return;
-  }
+if(!results.length && keyword!==""){
+notFound.classList.remove("hidden");
+return;
+}
 
-  results.forEach(film => {
-    resultGrid.innerHTML += `
-      <div class="poster" onclick="location.href='${film.link}'">
-        <img src="${film.poster}">
-      </div>
-    `;
-  });
+results.forEach(film=>{
+resultGrid.innerHTML+=`
+<div class="poster" onclick="location.href='${film.link}'">
+<img src="${film.poster}">
+</div>`;
+});
 });
 </script>
 
 <div class="nav-overlay">
-  <a href="Postiflix.html" class="nav-btn"><img src="rumahku.png"></a>
-  <a href="Searchpage.html" class="nav-btn"><img src="searchbtn.png"></a>
-  <a href="upcoming.html" class="nav-btn"><img src="enyarrek.png"></a>
-  <a href="inpone.html" class="nav-btn"><img src="inpone.png"></a>
+<a href="Postiflix.html" class="nav-btn"><img src="rumahku.png"></a>
+<a href="Searchpage.html" class="nav-btn"><img src="searchbtn.png"></a>
+<a href="upcoming.html" class="nav-btn"><img src="enyarrek.png"></a>
 </div>
 
 </body>

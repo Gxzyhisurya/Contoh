@@ -1,141 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <title>General Info</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>General Info</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color: transparent; /* 🔥 HILANGKAN BIRU ANDROID */
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
-      font-family: Arial, sans-serif;
-      color: #fff;
+/* HILANGKAN OUTLINE FOCUS SEMUA ELEMEN */
+a, button, img, div {
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
 
-      /* PENTING */
-      display: flex;
-      justify-content: center;
-    }
+a:focus,
+button:focus,
+a:active,
+button:active {
+  outline: none;
+  box-shadow: none;
+}
 
-    .container {
-      width: 100%;
-      max-width: 420px;
-      padding: 24px;
-      text-align: center;
+html,body{
+  max-width:100%;
+  overflow-x:hidden;
+}
 
-      /* SPACE AMAN UNTUK NAV */
-      padding-bottom: 110px;
-    }
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#1a1a1a,#0b0b0b);
+  font-family:Arial,sans-serif;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+}
 
-    /* Image 1:1 (TIDAK DIUBAH) */
-    .img-1x1 {
-      width: 120px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 0 auto;
-      display: block;
-    }
+/* ===== CONTAINER ===== */
+.container{
+  width:100%;
+  max-width:420px;
+  padding:24px;
+  text-align:center;
+  padding-bottom:110px;
+}
 
-    h1 {
-      margin: 16px 0 20px;
-      font-size: 22px;
-      font-weight: 600;
-    }
+/* Image 1:1 */
+.img-1x1{
+  width:120px;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:8px;
+  margin:0 auto;
+  display:block;
+}
 
-    .info-box {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      padding: 14px 16px;
-      margin-bottom: 14px;
-      font-size: 14px;
-      line-height: 1.5;
-      text-align: left;
-    }
+h1{
+  margin:16px 0 20px;
+  font-size:22px;
+  font-weight:600;
+}
 
-    .info-box.italic {
-      font-style: italic;
-      opacity: 0.95;
-    }
+.info-box{
+  background:rgba(255,255,255,0.08);
+  border-radius:8px;
+  padding:14px 16px;
+  margin-bottom:14px;
+  font-size:14px;
+  line-height:1.5;
+  text-align:left;
+}
 
-    .logo-bottom {
-      margin-top: 36px;
-    }
+.info-box.italic{
+  font-style:italic;
+  opacity:0.95;
+}
 
-    /* ===== NAV OVERLAY ===== */
-    .nav-overlay {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      background: rgba(0, 0, 0, 0.95);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      z-index: 9999;
-    }
+.logo-bottom{
+  margin-top:36px;
+}
 
-    .nav-btn img {
-      width: 49px;
-      height: 50px;
-      opacity: 0.85;
-      transition: 0.3s;
-    }
+/* ===== NAV OVERLAY ===== */
+.nav-overlay{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:rgba(0,0,0,0.95);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:9999;
+}
 
-    .nav-btn img:hover {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-  </style>
+.nav-btn{
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-btn img{
+  width:49px;
+  height:50px;
+  opacity:0.85;
+  transition:0.3s;
+  display:block;
+}
+
+.nav-btn img:hover{
+  opacity:1;
+  transform:scale(1.1);
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <img src="generallogo.jpg" alt="General Logo" class="img-1x1">
+<img src="generallogo.jpg" alt="General Logo" class="img-1x1">
 
-    <h1>General</h1>
+<h1>General</h1>
 
-    <div class="info-box">
-      General is an account intended for users aged 13 and above, as the content
-      contains elements that are recommended for that age group.
-    </div>
+<div class="info-box">
+General is an account intended for users aged 13 and above, as the content
+contains elements that are recommended for that age group.
+</div>
 
-    <div class="info-box italic">
-      General adalah akun yang diperuntukkan bagi pengguna berusia 13 tahun ke atas,
-      karena konten di dalamnya mengandung unsur yang direkomendasikan untuk usia tersebut.
-    </div>
+<div class="info-box italic">
+General adalah akun yang diperuntukkan bagi pengguna berusia 13 tahun ke atas,
+karena konten di dalamnya mengandung unsur yang direkomendasikan untuk usia tersebut.
+</div>
 
-    <div class="logo-bottom">
-      <img src="logopotsiflixnew.png" alt="Website Logo" class="img-1x1">
-    </div>
+<div class="logo-bottom">
+<img src="logopotsiflixnew.png" alt="Website Logo" class="img-1x1">
+</div>
 
-  </div>
+</div>
 
-  <!-- NAV -->
-  <div class="nav-overlay">
-    <a href="Postiflix.html" class="nav-btn">
-      <img src="rumahku.png" alt="Home">
-    </a>
+<!-- NAV -->
+<div class="nav-overlay">
+<a href="Postiflix.html" class="nav-btn">
+<img src="rumahku.png" alt="Home">
+</a>
 
-    <a href="Searchpage.html" class="nav-btn">
-      <img src="searchbtn.png" alt="Search">
-    </a>
+<a href="Searchpage.html" class="nav-btn">
+<img src="searchbtn.png" alt="Search">
+</a>
 
-    <a href="upcoming.html" class="nav-btn">
-      <img src="enyarrek.png" alt="Upcoming">
-    </a>
-
-    <a href="inpone.html" class="nav-btn">
-      <img src="inpone.png" alt="Profile">
-    </a>
-  </div>
+<a href="upcoming.html" class="nav-btn">
+<img src="enyarrek.png" alt="Upcoming">
+</a>
 
 </body>
 </html>

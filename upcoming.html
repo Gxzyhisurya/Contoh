@@ -5,122 +5,161 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Segera Hadir</title>
 
+<!-- FONT POPPINS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-.nav-overlay {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 9999;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color: transparent; /* 🔥 HILANGKAN BIRU */
 }
 
-.nav-btn img {
-  width: 49px;
-  height: 50px;
-  opacity: 0.85;
-  transition: 0.3s;
+a,button{
+  outline:none;
+  border:none;
+  text-decoration:none;
 }
 
-.nav-btn img:hover {
-  opacity: 1;
-  transform: scale(1.1);
+a:focus,
+button:focus{
+  outline:none;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
+html,body{
+  max-width:100%;
+  overflow-x:hidden;
 }
 
-.container {
-  max-width: 420px;
-  margin: auto;
-  padding: 20px;
-  padding-bottom: 120px; /* SPACE BAWAH AMAN */
+body{
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:#fff;
 }
 
-h1 {
-  font-size: 22px;
-  margin-bottom: 15px;
+/* ================= CONTAINER ================= */
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:20px;
+  padding-bottom:120px;
 }
 
-.video-box {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 15px;
+h1{
+  font-size:22px;
+  margin-bottom:15px;
+  font-weight:600;
 }
 
-.video-box img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* ================= VIDEO BOX ================= */
+.video-box{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  background:#111;
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:15px;
 }
 
-.movie-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 20px;
+.video-box img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.movie-logo {
-  width: 55%;
-  aspect-ratio: 16 / 9;
-  background: #fff;
-  overflow: hidden;
+/* ================= MOVIE ROW ================= */
+.movie-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:20px;
 }
 
-.movie-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.movie-logo{
+  width:55%;
+  aspect-ratio:16/9;
+  background:#111;
+  overflow:hidden;
+  border-radius:8px;
 }
 
-.icon-btn {
-  text-align: center;
-  font-size: 8px;
+.movie-logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.icon-btn a {
-  color: #fff;
-  text-decoration: none;
+.icon-btn{
+  text-align:center;
+  font-size:11px;
 }
 
-.icon-btn img {
-  width: 48px;
-  margin-bottom: 5px;
+.icon-btn a{
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
-.release {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.icon-btn img{
+  width:48px;
+  margin-bottom:5px;
+  transition:0.3s;
 }
 
-.desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #ccc;
+.icon-btn img:hover{
+  transform:scale(1.08);
 }
 
-.genre {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  font-size: 14px;
-  font-weight: bold;
+/* ================= TEXT ================= */
+.release{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.desc{
+  font-size:14px;
+  line-height:1.6;
+  color:#ccc;
+}
+
+.genre{
+  margin-top:10px;
+  margin-bottom:30px;
+  font-size:14px;
+  font-weight:600;
+}
+
+/* ================= NAV BOTTOM ================= */
+.nav-overlay{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:rgba(0,0,0,0.95);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:9999;
+}
+
+.nav-btn img{
+  width:49px;
+  height:50px;
+  opacity:0.85;
+  transition:0.3s;
+}
+
+.nav-btn img:hover{
+  opacity:1;
+  transform:scale(1.1);
 }
 </style>
 </head>
@@ -201,7 +240,6 @@ Sekumpulan content creator melakukan penelusuran di pabrik gula bekas...
   <a href="Postiflix.html" class="nav-btn"><img src="rumahku.png"></a>
   <a href="Searchpage.html" class="nav-btn"><img src="searchbtn.png"></a>
   <a href="upcoming.html" class="nav-btn"><img src="enyarrek.png"></a>
-  <a href="inpone.html" class="nav-btn"><img src="inpone.png"></a>
 </div>
 
 </body>
